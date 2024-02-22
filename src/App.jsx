@@ -5,6 +5,7 @@ function App() {
   const [isDetail, setIsDetail] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [isShowPopup, setIsShowPopup] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleClickPost = () => {
     setIsDetail(true);
@@ -43,14 +44,17 @@ function App() {
               <img
                 src='/images/instagram-clone-02.png'
                 alt='Instagram clone image 02'
+                onLoad={() => setImageLoaded(true)}
               />
-              <video
-                src='/videos/instagram-clone-post-video-01.mp4'
-                controls
-                autoPlay
-              >
-                Your browser does not support the video tag.
-              </video>
+              {imageLoaded && (
+                <video
+                  src='/videos/instagram-clone-post-video-01.mp4'
+                  controls
+                  autoPlay
+                >
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
             <img
               src='/images/instagram-clone-03.png'
